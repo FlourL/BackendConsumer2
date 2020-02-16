@@ -32,7 +32,7 @@ public class ApiConsumer {
 	    } catch (Exception e) {e.printStackTrace();}
 	
 	}*/
-	public void postUser(String Name, String Proffesion) {
+	public String postUser(String Name, String Proffesion) {
 		try {
 			URL connectTo = new URL(SERVICE_URL + "/addUser");
 			con = (HttpURLConnection) connectTo.openConnection();
@@ -65,12 +65,12 @@ public class ApiConsumer {
 					    while ((responseLine = br.readLine()) != null) {
 					        response.append(responseLine.trim());
 					    }
-					    System.out.println(response.toString());
+					    return response.toString();
 					}
 				
 			} catch (IOException e) {
 				e.printStackTrace();
-				System.out.println("IOEXCEPTION REACHED");
+				return "IOEXCEPTION REACHED";
 			}
 	}
 	public String getUserList() {
